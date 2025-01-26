@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cocktail Guessing Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Cocktail Guessing Game</h1>
+
+    <div class="score">
+        <h2>Down in one streak: {{ score }}</h2>
+    </div>
+
+    {% if image_url %}
+        <img src="{{ image_url }}" alt="{{ cocktail_name }}">
+    {% endif %}
+
+    <div class="guess-count">
+        <p>Number of guesses: {{ guess_count }}</p>
+    </div>
+
+    <div class="ingredients-list">
+        <h3>Ingredient List:</h3>
+        <ul>
+            {% for ingredient in ingredients %}
+                <li>{{ ingredient }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="word-display">
+        {% for char in cocktail_name %}
+            {% if char == ' ' %}
+                &nbsp;&nbsp;
+            {% elif char.isalpha() %}
+                {% if char.lower() in current_progress %}
+                    {{ char }}
+                {% else %}
+                    _
+                {% endif %}
+            {% else %}
+                {{ char }}
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    {% if result %}
+        <p>{{ result }}</p>
+        <form method="GET">
+            <button type="submit">Guess More</button>
+        </form>
+    {% else %}
+        <form method="POST">
+            <input type="text" name="guess" placeholder="Guess letters" required>
+            <input type="hidden" name="correct_name" value="{{ cocktail_name }}">
+            <input type="hidden" name="image_url" value="{{ image_url }}">
+            <input type="hidden" name="current_progress" value="{{ current_progress | join('') }}">
+            <input type="hidden" name="guess_count" value="{{ guess_count }}">
+            <button type="submit">Submit</button>
+        </form>
+    {% endif %}
+</body>
+</html>

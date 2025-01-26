@@ -1,0 +1,135 @@
+/* General Styles */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(120deg, #f6d365, #fda085);
+    color: #333;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #4b2e83;
+}
+
+.score {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #1a535c;
+}
+
+img {
+    max-width: 30%;
+    height: auto;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+
+/* Ingredients List */
+.ingredients-list {
+    font-size: 1.5rem;
+    margin: 20px 0;
+    text-align: left;
+    display: inline-block;
+}
+
+.ingredients-list ul {
+    padding-left: 20px;
+}
+
+.ingredients-list li {
+    margin: 5px 0;
+}
+
+/* Word Display */
+.word-display {
+    font-size: 2rem;
+    letter-spacing: 5px;
+    margin: 20px 0;
+    word-break: break-word;
+    text-transform: uppercase;
+    color: #333;
+    background: #ffffffcc;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Guess Count */
+.guess-count {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #e63946;
+}
+
+form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+input[type="text"] {
+    padding: 12px;
+    font-size: 1.2rem;
+    border: 2px solid #4b2e83;
+    border-radius: 8px;
+    width: 60%;
+    max-width: 400px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+button {
+    background-color: #4b2e83;
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #6b42b8;
+    transform: scale(1.05);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    img {
+        max-width: 50%;
+    }
+
+    .ingredients-list {
+        font-size: 1.2rem;
+    }
+
+    .word-display {
+        font-size: 1.5rem;
+        letter-spacing: 3px;
+        padding: 8px 15px;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    input[type="text"] {
+        font-size: 1rem;
+        width: 80%;
+    }
+}
